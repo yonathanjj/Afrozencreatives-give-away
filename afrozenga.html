@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles (For Desktop and Default Layout) */
+   body, html {
+     margin: 0;
+     padding: 0;
+     font-family: 'Kanit', sans-serif;
+     overflow-x: hidden;
+   }
+
+   #loading-screen {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: #000;
+     z-index: 1000;
+   }
+
+   #loading-video {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+
+   #main-content {
+     display: none;
+   }
+
+   nav {
+     position: absolute;
+     top: 1rem;
+     width: 100%;
+     z-index: 100;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+
+   nav img {
+     height: 120px;
+   }
+
+   .hero {
+     height: 100vh;
+     position: relative;
+   }
+
+   .hero::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.5);
+     z-index: 0;
+   }
+
+   .hero video {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     z-index: -1;
+   }
+
+   .form-container {
+     z-index: 1;
+     padding: 20px;
+     max-width: 100%;
+     margin: auto;
+     display: flex;
+     justify-content: space-between;
+   }
+
+.looping-text {
+  position: absolute;
+  bottom: 0;
+  width: 200%;  /* Stretch the container to 2x the screen width */
+  white-space: nowrap;
+  font-weight: light;
+  font-size: 120px;
+  color: #575757;
+  text-align: center;
+  animation: scrollText 20s linear infinite;
+  padding: 20px 0;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);  /* Start at the left */
+  }
+  100% {
+    transform: translateX(-50%);  /* Move 50% of the width of the text */
+  }
+}
+
+
+
+
+
+
+/* Adjustments for Mobile Layout */
+@media (max-width: 768px) {
+  /* Loading Screen */
+  #loading-screen {
+    display: flex;
+  }
+
+  /* Navigation */
+  nav img {
+    height: 80px; /* Make logo smaller */
+  }
+
+  /* Hero Section */
+  .hero {
+    height: auto; /* Allow hero section to fit content */
+    padding-top: 60px; /* Give space for the nav */
+  }
+
+  .hero::before {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    justify-content: center;
+    margin-left: 20%; /* Move form to the right */
+  }
+
+  .column {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Paragraph Text */
+  .form-container .column.is-half h2, .form-container .column.is-half p {
+    text-align: center;
+    font-size: 18px; /* Adjust text size for mobile */
+    padding: 10px 0;
+    margin-top: 50px; /* Push the paragraph lower */
+    margin-left: -75%; /* Move the paragraph to the left */
+  }
+
+  /* Email Button */
+  .button {
+    width: 95%; /* Make button smaller */
+    font-size: 16px; /* Resize button text */
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: -35%; /* Move the paragraph to the left */
+  }
+
+  /* Form Inputs */
+  .input {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .field {
+    margin-top: 10px;
+  }
+
+  /* Checkbox Agreement */
+  .field label {
+    font-size: 14px;
+  }
+
+  /* Submit Button */
+  button[type="submit"] {
+    width: 80%;
+    font-size: 18px;
+    padding: 12px;
+    margin-top: 20px;
+    margin-left: 7%;
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+<!-- Loading Screen -->
+<div id="loading-screen">
+    <video id="loading-video" autoplay muted>
+        <source src="afro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Main Content -->
+<div id="main-content">
+    <nav>
+        <img src="logo.png" alt="Logo">
+    </nav>
+    <section class="hero">
+        <video autoplay muted loop>
+            <source src="the.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="form-container">
+            <div class="columns">
+                <!-- Left Side Content -->
+                <div class="column is-half" style="padding-left: 6rem;">
+                    <h2 style="font-size: 25px; font-weight: light; color: white;">Contact</h2>
+                    <p style="font-size: 27px; font-weight: 500; color: white;">Hey guys if you have any other extra things to ask holla at us with the email below please, Winners will be announced on 29/04/2017. Make sure you follow us on Instagram for updates!</p>
+                    <a href="mailto:Afrozencreatives@gmail.com">
+                        <button class="button edge-stroke">Afrozencreatives@gmail.com</button>
+
+                    </a>
+                </div>
+
+                <!-- Right Side Content -->
+                <div class="column is-half" style="padding-right: 6rem;">
+                    <form>
+                        <h1 class="title" style="color: white; font-weight: 300;">Full name*</h1>
+                        <input class="input" type="text" placeholder="Full Name" style="border: none; border-bottom: 2px solid white; margin-bottom: 15px; color: white; background: transparent;">
+
+                        <h1 class="title" style="color: white; font-weight: 300;">Email*</h1>
+                        <input class="input" type="email" placeholder="Your Email" style="border: none; border-bottom: 2px solid white; margin-bottom: 15px; color: white; background: transparent;">
+
+                        <h1 class="title" style="color: white; font-weight: 300;">Phone number*</h1>
+                        <input class="input" type="tel" placeholder="Your Phone Number" style="border: none; border-bottom: 2px solid white; margin-bottom: 15px; color: white; background: transparent;">
+
+                        <h1 class="title" style="color: white; font-weight: 300;">Why Do You Deserve to Win?*</h1>
+                        <input class="input" type="text" placeholder="Your Answer" style="border: none; border-bottom: 2px solid white; margin-bottom: 15px; color: white; background: transparent;">
+
+                        <!-- Terms and Conditions -->
+                        <div class="field" style="color: white;">
+                            <input type="checkbox" id="agree" style="width: 20px; height: 20px; border-radius: 50%; margin-right: 10px;">
+                            <label for="agree" style="font-size: 16px; font-weight: 300;">I agree to the terms and conditions and allow Afrizen to contact me via email.</label>
+                        </div>
+                    </form>
+                <!-- Submit Circle Button -->
+                        <div class="field">
+                            <button type="submit" class="button is-primary" style="
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #0A332D;
+            background: transparent;
+            color: white;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+              margin-top: 20px;
+          ">
+                                <span>Submit</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="looping-text">
+            ስለጎበኙ እናመሰግናለን ስለጎበኙ እናመሰግናለን ስለጎበኙ እናመሰግናለን ስለጎበኙ እናመሰግናለን ስለጎበኙ እናመሰግናለን
+        </div>
+
+    </section>
+</div>
+
+<script>
+    // GSAP Animation
+    window.addEventListener("load", () => {
+      const loadingScreen = document.getElementById("loading-screen");
+      const mainContent = document.getElementById("main-content");
+
+      // Play the loading video for 7 seconds, then reveal the main content
+      setTimeout(() => {
+        gsap.to(loadingScreen, { duration: 1, opacity: 0, onComplete: () => loadingScreen.style.display = "none" });
+        gsap.fromTo(mainContent, { opacity: 0 }, { duration: 1, opacity: 1, display: "block" });
+      }, 7000);
+    });
+</script>
+</body>
+</html>
